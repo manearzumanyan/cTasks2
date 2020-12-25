@@ -1,6 +1,5 @@
 #include <stdio.h>
-int isSim(char *arr){
-  int k = 0;
+int isSim(char *arr, int k){
   for(int a = 0, b = k - 1; a < b; a++, b--){
     if(arr[a] != arr[b]){
       return 0;
@@ -22,7 +21,7 @@ int main(void) {
         ar[k++] = arr[i] % 10;
         arr[i] /= 10; 
       }
-      if(isSim(ar) == 1){
+      if(isSim(ar, k) == 1){
         flag = 1;
       }
    }
