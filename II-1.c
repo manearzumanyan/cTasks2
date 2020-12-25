@@ -1,15 +1,19 @@
 #include <stdio.h>
+#include <string.h>
 int isSim(char *arr, int k){
-  for(int a = 0, b = k - 1; a < b; a++, b--){
-    if(arr[a] != arr[b]){
-      return 0;
+  for(int b = k -1; b >= 0; b--){
+    for(int a = 0; a < b; a++){
+      if(arr[a] != arr[b]){
+        return 0;
+      }
     }
   }
   return 1;
 }
 
 int main(void) {
-  int arr[5], k, flag = 0;
+  int arr[5], k;
+  char flag[3] = "NO";
 
   for(int i = 0; i < 5; i++){
     scanf("%d", &arr[i]);
@@ -22,9 +26,9 @@ int main(void) {
         arr[i] /= 10; 
       }
       if(isSim(ar, k) == 1){
-        flag = 1;
+        strcpy(flag, "YES");
       }
    }
   }
-  printf("%d", flag);
+  printf("%s", flag);
 }
